@@ -1,159 +1,378 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dreamerz Hub Menu</title>
-
+<title>Dreamerz Hub — Menu</title>
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: #0b0b0b;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  color: #f2f2f2;
 }
 
-body{
-    background:#111;
-    color:#fff;
+.page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 40px 24px 60px 24px;
 }
 
-header{
-    background:#000;
-    padding:30px;
-    text-align:center;
-    border-bottom:3px solid #d4af37;
+.logo-wrap { text-align: center; margin-bottom: 10px; }
+.logo-wrap img { width: 130px; height: auto; border-radius: 12px; }
+
+.title-en {
+  text-align: center;
+  color: #eba33c;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 10px 0 2px 0;
+}
+.title-ar {
+  text-align: center;
+  color: #b8862f;
+  font-size: 16px;
+  margin: 0 0 4px 0;
+}
+.subtitle-en {
+  text-align: center;
+  color: #9a9a9a;
+  font-size: 13px;
+  margin: 0;
+}
+.subtitle-ar {
+  text-align: center;
+  color: #6f6f6f;
+  font-size: 11px;
+  margin: 2px 0 0 0;
 }
 
-header h1{
-    color:#d4af37;
-    font-size:38px;
+hr.sep {
+  border: none;
+  border-top: 1px solid #2a2a2a;
+  margin: 20px 0 24px 0;
 }
 
-header p{
-    color:#ddd;
-    margin-top:10px;
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.col {
+  flex: 1 1 320px;
+  min-width: 280px;
+}
+.col .box, .col .dreamerz-box {
+  margin-bottom: 14px;
 }
 
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:30px 20px;
+.box {
+  border: 1px solid #3a2f1e;
+  border-radius: 14px;
+  padding: 17px 20px;
+  background: #121212;
 }
 
-.section{
-    margin-bottom:40px;
+.box-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+.box-header .icon { font-size: 19px; }
+.box-header .h-en {
+  color: #eba33c;
+  font-size: 18px;
+  font-weight: 700;
+}
+.box-header .h-ar {
+  color: #a9803f;
+  font-size: 12px;
+  margin-left: auto;
+}
+.header-underline {
+  border: none;
+  border-top: 1px solid #4a3a20;
+  margin: 6px 0 12px 0;
 }
 
-.section h2{
-    color:#d4af37;
-    margin-bottom:20px;
-    border-bottom:2px solid #333;
-    padding-bottom:10px;
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  gap: 10px;
+}
+.item-name {
+  display: flex;
+  flex-direction: column;
+}
+.name-en { color: #f2f2f2; font-size: 15px; font-weight: 500; }
+.name-ar { color: #808080; font-size: 11px; margin-top: 1px; }
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  white-space: nowrap;
+}
+.price .num { color: #eba33c; font-size: 17px; font-weight: 700; }
+.price .unit-en { color: #eba33c; font-size: 11px; }
+.price .unit-ar { color: #7a5f2e; font-size: 9px; }
+
+.dreamerz-box {
+  border: 1px solid #3a2f1e;
+  border-radius: 14px;
+  padding: 16px 20px;
+  background: #121212;
+  text-align: center;
+}
+.dreamerz-title { color: #eba33c; font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.dreamerz-text-en { color: #cfcfcf; font-size: 12px; line-height: 1.5; }
+.dreamerz-text-ar { color: #7a7a7a; font-size: 10px; margin-top: 4px; line-height: 1.6; }
+
+.order-box {
+  border: 1px solid #7a5a20;
+  border-radius: 14px;
+  padding: 20px 22px;
+  background: #14120c;
+  text-align: center;
+  margin-top: 24px;
+}
+.order-en { color: #e8e8e8; font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+.order-ar { color: #8a8a8a; font-size: 14px; margin-bottom: 10px; }
+.order-phone { color: #4ac26b; font-size: 20px; font-weight: 700; }
+.order-tap { color: #4ac26b; font-size: 26px; font-weight: 700; margin-top: 10px; }
+.order-tap-ar { color: #3a8a54; font-size: 16px; font-weight: 600; }
+.order-tap, .order-tap-ar { text-decoration: none; display: block; cursor: pointer; }
+.order-tap:hover, .order-tap-ar:hover { opacity: 0.8; }
+
+.page-nav {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #222;
+  color: #666;
+  font-size: 12px;
 }
 
-.item{
-    display:flex;
-    justify-content:space-between;
-    padding:14px 0;
-    border-bottom:1px solid #333;
-    font-size:18px;
-}
-
-.price{
-    color:#d4af37;
-    font-weight:bold;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    color:#888;
-    border-top:2px solid #222;
+.section-divider {
+  height: 1px;
+  background: #1c1c1c;
+  margin: 50px 0;
 }
 </style>
-
 </head>
-
 <body>
 
-<header>
-<h1>Dreamerz Hub</h1>
-<p>Food & Drinks Menu</p>
-</header>
+<!-- SECTION 1 -->
+<div class="page">
+  <div class="logo-wrap"><img src="assets/logo.jpg" alt="Dreamerz Hub"></div>
+  <div class="title-en">Drinks &amp; Snacks Menu</div>
+  <div class="title-ar">قائمة المشروبات والمسليات</div>
+  <div class="subtitle-en">Chocolate, Sweets &amp; Snacks</div>
+  <div class="subtitle-ar">الشوكولاتة والحلويات والمسليات</div>
+  <hr class="sep">
 
-<div class="container">
+  <div class="columns">
+    <div class="col">
+      <div class="box">
+        <div class="box-header">
+          <span class="icon">🍪</span>
+          <span class="h-en">Cookies &amp; Snacks</span>
+          <span class="h-ar">البسكويت والمسليات</span>
+        </div>
+        <hr class="header-underline">
+        <div class="row"><div class="item-name"><div class="name-en">Jory Coffee Biscuit</div><div class="name-ar">كافي جوري بسكويت</div></div><div class="price"><span class="num">25</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Lucker Digestive</div><div class="name-ar">لوكر دايجستيف</div></div><div class="price"><span class="num">13</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Oreo Original</div><div class="name-ar">أوريو الأصلي</div></div><div class="price"><span class="num">13</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Oreo Hazelnut</div><div class="name-ar">أوريو بندق</div></div><div class="price"><span class="num">13</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Tuc Cheese</div><div class="name-ar">توك جبنة</div></div><div class="price"><span class="num">13</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Bimbo</div><div class="name-ar">بيمبو</div></div><div class="price"><span class="num">7</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Shamadan</div><div class="name-ar">شمعدان</div></div><div class="price"><span class="num">13</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Ulker</div><div class="name-ar">أولكر</div></div><div class="price"><span class="num">10</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Mandoline</div><div class="name-ar">ماندولين</div></div><div class="price"><span class="num">13</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Gipo Wafer</div><div class="name-ar">جيبو ويفر</div></div><div class="price"><span class="num">20</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Assorted Wafer</div><div class="name-ar">ويفر مشكل</div></div><div class="price"><span class="num">10</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+      </div>
 
-<div class="section">
-<h2>🥤 Cold Drinks</h2>
+      <div class="box">
+        <div class="box-header">
+          <span class="icon">🧁</span>
+          <span class="h-en">Cake &amp; Sweets</span>
+          <span class="h-ar">الكيك والحلويات</span>
+        </div>
+        <hr class="header-underline">
+        <div class="row"><div class="item-name"><div class="name-en">Hostess Big</div><div class="name-ar">هوز كبير</div></div><div class="price"><span class="num">13</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Hostess</div><div class="name-ar">هوز</div></div><div class="price"><span class="num">7</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Twinkies</div><div class="name-ar">توينكس</div></div><div class="price"><span class="num">7</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Chewing Gum</div><div class="name-ar">لبان</div></div><div class="price"><span class="num">2</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+      </div>
+    </div>
 
-<div class="item">
-<span>Pepsi</span>
-<span class="price">40 EGP</span>
+    <div class="col">
+      <div class="box">
+        <div class="box-header">
+          <span class="icon">🍫</span>
+          <span class="h-en">Premium Chocolate &amp; Wafers</span>
+          <span class="h-ar">الشوكولاتة والويفر الفاخر</span>
+        </div>
+        <hr class="header-underline">
+        <div class="row"><div class="item-name"><div class="name-en">KitKat Wafer</div><div class="name-ar">كنكات ويفر</div></div><div class="price"><span class="num">40</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Cadbury Wafer Double</div><div class="name-ar">كادبري ويفر دبل</div></div><div class="price"><span class="num">13</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Cadbury Wafer Single</div><div class="name-ar">كادبري ويفر سنجل</div></div><div class="price"><span class="num">7</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Cadbury Double</div><div class="name-ar">كادبري دبل</div></div><div class="price"><span class="num">13</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Cadbury Single</div><div class="name-ar">كادبري سنجل</div></div><div class="price"><span class="num">7</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Snickers</div><div class="name-ar">سنيكرز</div></div><div class="price"><span class="num">25</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Bounty</div><div class="name-ar">باونتي</div></div><div class="price"><span class="num">7</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Galaxy Flutes</div><div class="name-ar">جالاكسي فلوتز</div></div><div class="price"><span class="num">15</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Galaxy Single</div><div class="name-ar">جالاكسي سنجل</div></div><div class="price"><span class="num">7</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Twix Wafer</div><div class="name-ar">توكس ويفر</div></div><div class="price"><span class="num">15</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+      </div>
+
+      <div class="box">
+        <div class="box-header">
+          <span class="icon">☕</span>
+          <span class="h-en">Abu Auf Products</span>
+          <span class="h-ar">منتجات أبو عوف</span>
+        </div>
+        <hr class="header-underline">
+        <div class="row"><div class="item-name"><div class="name-en">Abu Auf Chocolate</div><div class="name-ar">أبو عوف شوكولاتة</div></div><div class="price"><span class="num">10</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Abu Auf Plain</div><div class="name-ar">أبو عوف سادة</div></div><div class="price"><span class="num">8</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="order-box">
+    <div class="order-en">To order via WhatsApp:</div>
+    <div class="order-ar">للطلب عبر واتساب:</div>
+    <div class="order-phone">📲 01016614482</div>
+    <a href="https://wa.me/201016614482" class="order-tap" target="_blank" rel="noopener">(Tap)</a>
+    <a href="https://wa.me/201016614482" class="order-tap-ar" target="_blank" rel="noopener">(اضغط)</a>
+  </div>
 </div>
 
-<div class="item">
-<span>7UP</span>
-<span class="price">40 EGP</span>
+<div class="section-divider"></div>
+
+<!-- SECTION 2 -->
+<div class="page">
+  <div class="logo-wrap"><img src="assets/logo.jpg" alt="Dreamerz Hub"></div>
+  <div class="title-en">Drinks &amp; Coffee</div>
+  <div class="title-ar">المشروبات والقهوة</div>
+  <div class="subtitle-en">Hot &amp; Cold Drinks</div>
+  <div class="subtitle-ar">المشروبات الساخنة والباردة</div>
+  <hr class="sep">
+
+  <div class="columns">
+    <div class="col">
+      <div class="box">
+        <div class="box-header">
+          <span class="icon">🥤</span>
+          <span class="h-en">Cold &amp; Refreshing Drinks</span>
+          <span class="h-ar">المشروبات الباردة والمنعشة</span>
+        </div>
+        <hr class="header-underline">
+        <div class="row"><div class="item-name"><div class="name-en">Pepsi Turbo</div><div class="name-ar">بيبسي تيربو</div></div><div class="price"><span class="num">15</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Red Bull</div><div class="name-ar">ريد بول</div></div><div class="price"><span class="num">70</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Monster</div><div class="name-ar">مونستر</div></div><div class="price"><span class="num">55</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Pure Natural Juice</div><div class="name-ar">عصير بيور طبيعي</div></div><div class="price"><span class="num">25</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Sun Top</div><div class="name-ar">سان توب</div></div><div class="price"><span class="num">20</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Kan</div><div class="name-ar">سوفت كان</div></div><div class="price"><span class="num">20</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+      </div>
+
+      <div class="dreamerz-box">
+        <div class="dreamerz-title">✨ Dreamerz Hub ✨</div>
+        <div class="dreamerz-text-en">Your favorite spot to relax and focus.<br>We're always happy to serve the finest, carefully selected drinks and sweets.</div>
+        <div class="dreamerz-text-ar">مكانك المفضل للراحة والتركيز.<br>نسعد دائماً بتقديم أفضل المشروبات والحلويات المختارة بعناية.</div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="box">
+        <div class="box-header">
+          <span class="icon">☕</span>
+          <span class="h-en">Coffee &amp; Hot Drinks</span>
+          <span class="h-ar">القهوة والمشروبات الساخنة</span>
+        </div>
+        <hr class="header-underline">
+        <div class="row"><div class="item-name"><div class="name-en">Coffee Single</div><div class="name-ar">قهوة سنجل</div></div><div class="price"><span class="num">30</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Coffee Double</div><div class="name-ar">قهوة دبل</div></div><div class="price"><span class="num">45</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Coffee with Milk Single</div><div class="name-ar">قهوة بلبن سنجل</div></div><div class="price"><span class="num">40</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Coffee with Milk Double</div><div class="name-ar">قهوة بلبن دبل</div></div><div class="price"><span class="num">50</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Black Tea</div><div class="name-ar">شاي أحمر</div></div><div class="price"><span class="num">15</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Green Tea</div><div class="name-ar">شاي أخضر</div></div><div class="price"><span class="num">15</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Warm Anise</div><div class="name-ar">ينسون دافئ</div></div><div class="price"><span class="num">15</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Nescafe</div><div class="name-ar">نسكافيه</div></div><div class="price"><span class="num">50</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="order-box">
+    <div class="order-en">To order via WhatsApp:</div>
+    <div class="order-ar">للطلب عبر واتساب:</div>
+    <div class="order-phone">📲 01016614482</div>
+    <a href="https://wa.me/201016614482" class="order-tap" target="_blank" rel="noopener">(Tap)</a>
+    <a href="https://wa.me/201016614482" class="order-tap-ar" target="_blank" rel="noopener">(اضغط)</a>
+  </div>
 </div>
 
-<div class="item">
-<span>Mirinda</span>
-<span class="price">40 EGP</span>
+<div class="section-divider"></div>
+
+<!-- SECTION 3 -->
+<div class="page">
+  <div class="logo-wrap"><img src="assets/logo.jpg" alt="Dreamerz Hub"></div>
+  <div class="title-en">More Snacks</div>
+  <div class="title-ar">مسليات إضافية</div>
+  <div class="subtitle-en">Chips, Cookies &amp; Rolls</div>
+  <div class="subtitle-ar">شيبسي وبسكويت ورولز</div>
+  <hr class="sep">
+
+  <div class="columns">
+    <div class="col">
+      <div class="box">
+        <div class="box-header">
+          <span class="icon">🍪</span>
+          <span class="h-en">Chips &amp; Cookies</span>
+          <span class="h-ar">شيبسي وبسكويت</span>
+        </div>
+        <hr class="header-underline">
+        <div class="row"><div class="item-name"><div class="name-en">Chipsy Tiger</div><div class="name-ar">شيبسي تايجر</div></div><div class="price"><span class="num">15</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Todo Brownie</div><div class="name-ar">تودو براوني</div></div><div class="price"><span class="num">18</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Todo Boom</div><div class="name-ar">تودو بوم</div></div><div class="price"><span class="num">20</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">McVitie's Jory</div><div class="name-ar">ماكفيتيز جوري</div></div><div class="price"><span class="num">13</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">OG Biscuit</div><div class="name-ar">او جي بسكويت</div></div><div class="price"><span class="num">15</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="box">
+        <div class="box-header">
+          <span class="icon">🥨</span>
+          <span class="h-en">Molto &amp; Pretzo</span>
+          <span class="h-ar">مولتو وبريتزو</span>
+        </div>
+        <hr class="header-underline">
+        <div class="row"><div class="item-name"><div class="name-en">Molto Majm</div><div class="name-ar">مولتو ماجم</div></div><div class="price"><span class="num">20</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Molto Mini</div><div class="name-ar">مولتو ميني</div></div><div class="price"><span class="num">15</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Molto XXL</div><div class="name-ar">مولتو XXL</div></div><div class="price"><span class="num">15</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Pretzo Sticks</div><div class="name-ar">بريتزو ستيكس</div></div><div class="price"><span class="num">15</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+        <div class="row"><div class="item-name"><div class="name-en">Pretzo Mix</div><div class="name-ar">بريتزو ميكس</div></div><div class="price"><span class="num">13</span><span class="unit-en">EGP</span><span class="unit-ar">ج.م</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="order-box">
+    <div class="order-en">To order via WhatsApp:</div>
+    <div class="order-ar">للطلب عبر واتساب:</div>
+    <div class="order-phone">📲 01016614482</div>
+    <a href="https://wa.me/201016614482" class="order-tap" target="_blank" rel="noopener">(Tap)</a>
+    <a href="https://wa.me/201016614482" class="order-tap-ar" target="_blank" rel="noopener">(اضغط)</a>
+  </div>
+
+  <div class="page-nav">✨ Dreamerz Hub ✨</div>
 </div>
-
-<div class="item">
-<span>Water</span>
-<span class="price">15 EGP</span>
-</div>
-
-</div>
-
-<div class="section">
-<h2>☕ Hot Drinks</h2>
-
-<div class="item">
-<span>Turkish Coffee</span>
-<span class="price">45 EGP</span>
-</div>
-
-<div class="item">
-<span>Nescafe</span>
-<span class="price">50 EGP</span>
-</div>
-
-<div class="item">
-<span>Tea</span>
-<span class="price">35 EGP</span>
-</div>
-
-</div>
-
-<div class="section">
-<h2>🍫 Snacks</h2>
-
-<div class="item">
-<span>Snickers</span>
-<span class="price">35 EGP</span>
-</div>
-
-<div class="item">
-<span>Oreo</span>
-<span class="price">25 EGP</span>
-</div>
-
-<div class="item">
-<span>Galaxy</span>
-<span class="price">35 EGP</span>
-</div>
-
-</div>
-
-</div>
-
-<footer>
-Dreamerz Hub © 2026
-</footer>
 
 </body>
 </html>
