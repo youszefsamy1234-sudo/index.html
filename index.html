@@ -19,9 +19,6 @@ html, body {
   padding: 40px 24px 60px 24px;
 }
 
-.logo-wrap { text-align: center; margin-bottom: 10px; }
-.logo-wrap img { width: 130px; height: auto; border-radius: 12px; }
-
 .title-en {
   text-align: center;
   color: #eba33c;
@@ -389,7 +386,14 @@ document.addEventListener('DOMContentLoaded', function () {
       var priceNum = row.querySelector('.price .num');
       var productName = nameEn ? nameEn.textContent.trim() : '';
       var price = priceNum ? priceNum.textContent.trim() : '';
+
+      var room = prompt('Room number? / رقم الروم؟');
+      if (room === null) { return; }
+
       var message = 'I want to order: ' + productName + (price ? ' (' + price + ' EGP)' : '');
+      if (room.trim() !== '') {
+        message += ' — Room: ' + room.trim();
+      }
       var url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(message);
       window.open(url, '_blank', 'noopener');
     });
