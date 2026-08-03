@@ -99,6 +99,14 @@ hr.sep {
 }
 
 .row {
+  cursor: pointer;
+  transition: background 0.15s ease;
+  border-radius: 8px;
+}
+.row:hover {
+  background: rgba(255,255,255,0.04);
+}
+.row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -371,5 +379,22 @@ hr.sep {
   <div class="page-nav">✨ Dreamerz Hub ✨</div>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var phone = '201016614482';
+  var rows = document.querySelectorAll('.row');
+  rows.forEach(function (row) {
+    row.addEventListener('click', function (e) {
+      var nameEn = row.querySelector('.name-en');
+      var priceNum = row.querySelector('.price .num');
+      var productName = nameEn ? nameEn.textContent.trim() : '';
+      var price = priceNum ? priceNum.textContent.trim() : '';
+      var message = 'I want to order: ' + productName + (price ? ' (' + price + ' EGP)' : '');
+      var url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(message);
+      window.open(url, '_blank', 'noopener');
+    });
+  });
+});
+</script>
 </body>
 </html>
